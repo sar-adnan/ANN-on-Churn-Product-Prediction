@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 import os
 import kagglehub
+from data_validation import validate_dataframe
 
 def load_and_preprocess_data():
     # Download latest version of the dataset
@@ -31,6 +32,12 @@ def load_and_preprocess_data():
 
     X = df.drop('Churn', axis=1)
     y = df['Churn']
+
+    # Perform data validation before returning
+    if validate_dataframe(X):
+        print("Data validation passed in the preprocessing pipeline.")
+    else:
+        print("Warning: Data validation failed in the preprocessing pipeline.")
 
     return X, y
 
