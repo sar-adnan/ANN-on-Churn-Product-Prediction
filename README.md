@@ -21,8 +21,10 @@ By accurately identifying at-risk customers, businesses can:
 The project is designed with a **modular production-ready structure** to ensure scalability and maintainability:
 
 - **`data_preprocessing.py`**: Automated pipeline for data cleaning, handling missing values, encoding categorical variables, and feature scaling.
+- **`data_validation.py`**: **(New)** Automated data validation using Pydantic to ensure data integrity before training.
+- **`experiment_logger.py`**: **(New)** Custom logger to track training metrics and parameters for every experiment run.
 - **`model.py`**: Definition of the ANN architecture, including dropout layers for regularization to prevent overfitting.
-- **`train.py`**: Training script that incorporates class weighting (to handle imbalanced data) and early stopping.
+- **`train.py`**: Training script that incorporates class weighting (to handle imbalanced data), early stopping, and automated experiment logging.
 - **`ANN.ipynb`**: Interactive notebook for demonstration and exploratory analysis.
 
 ## 🛠️ Installation & Setup
@@ -50,6 +52,7 @@ To train the model and generate the prediction results, run:
 ```bash
 python train.py
 ```
+Training metrics will be automatically logged to `experiments_log.csv`.
 
 ## 📊 Dataset
 
@@ -70,8 +73,8 @@ The ANN model utilizes:
 
 - [x] **Day 1:** Refactor notebook into modular Python scripts.
 - [x] **Day 2:** Create comprehensive documentation and architecture overview.
-- [ ] **Day 3:** Implement Data Validation (Pydantic).
-- [ ] **Day 4:** Add Experiment Tracking.
+- [x] **Day 3:** Implement Data Validation (Pydantic).
+- [x] **Day 4:** Add Experiment Tracking (CSV Logging).
 - [ ] **Day 5:** Build Streamlit Inference Dashboard.
 
 ## 📄 License
